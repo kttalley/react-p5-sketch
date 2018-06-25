@@ -12,7 +12,7 @@ var Sketch = React.createClass({
     return (
       <svg width="640" height="480" onMouseMove={this.handleMouseMove}>
         <circle cx={this.state.x} cy={this.state.y} r="40"
-                stroke="black" fill="white"/>
+                stroke="black" fill={ "rgb(" + this.state.x+","+this.state.y+","+this.state.x+")"}/>
       </svg>
     );
   }
