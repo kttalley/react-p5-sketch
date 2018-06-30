@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<meta charset = "utf-8">
+<title>Interactive Landscape made with React</title>
+<div id = "landscape"></div>
+<script src = ""<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.0.1/react-dom.js"></script>
+<script type = "text/babel">
+    var Landscape = React.createClass({
+        getInitialState: function() {
+            return {x: 50, y: 50};
+        },
+        handleMouseMove: function(event) {
+            this.setState({
+                x: event.clientX,
+                y: event.clientY
+            });
+        },
+        handleKeyDown: function(event) {
+            this.setState({
+                r: 250,
+                g: 0,
+                b: 250,
+            });
+        },
+        render: function() {
+            return (
+                <svg width="640" height = "480" onKeyDown = {this.handleKeyDown}>
+                    <circle cx = {this.state.x} cy={this.state.y} r= "40">
+                </svg>
+            );
+        }
+    });
+
+    ReactDom.render(
+        <landscape/>,
+        document.getElementById('landscape')
+    );
+
+
+</script>
